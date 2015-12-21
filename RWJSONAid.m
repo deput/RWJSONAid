@@ -34,35 +34,35 @@ static RWJSONAidHandler rwHandler;
     return [super forwardingTargetForSelector:aSelector];\
 }
 
-@implementation NSNull (RWJSONRescue)
+@implementation NSNull (RWJSONAid)
 RWJSONRECUEMACRO
 @end
 
-@implementation NSArray (RWJSONRescue)
+@implementation NSArray (RWJSONAid)
 RWJSONRECUEMACRO
 @end
 
-@implementation NSString (RWJSONRescue)
+@implementation NSString (RWJSONAid)
 RWJSONRECUEMACRO
 @end
 
-@implementation NSDictionary (RWJSONRescue)
+@implementation NSDictionary (RWJSONAid)
 RWJSONRECUEMACRO
 @end
 
-@implementation NSNumber (RWJSONRescue)
+@implementation NSNumber (RWJSONAid)
 RWJSONRECUEMACRO
 @end
 
-@implementation RWJSONRescue
-+ (void) setHandler:(RWJSONRescueHandler)handler
+@implementation RWJSONAid
++ (void) setHandler:(RWJSONAidHandler)handler
 {
     rwHandler = handler;
 }
 @end
 
 #pragma mark - Interal Methods
-id RWJSONRescueForwardingTargetForSelector(id self, SEL cmd, SEL aSelector)
+id RWJSONAidForwardingTargetForSelector(id self, SEL cmd, SEL aSelector)
 {
     __block id retObject = nil;
     [rwJSONDataObjects enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
