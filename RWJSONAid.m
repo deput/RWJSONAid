@@ -1,12 +1,12 @@
 //
-//  RWJSONRescue.m
-//  RWJSONRescue
+//  RWJSONAid.m
+//  RWJSONAid
 //
 //  Created by deput on 12/19/15.
 //  Copyright © 2015 deput. All rights reserved.
 //
 
-#import "RWJSONRescue.h"
+#import "RWJSONAid.h"
 
 static NSString*        rwString;
 static NSNumber*        rwNumber;
@@ -14,9 +14,9 @@ static NSArray*         rwArray;
 static NSDictionary*    rwDictionary;
 
 static NSArray*         rwJSONDataObjects;
-static id               RWJSONRescueForwardingTargetForSelector(id self, SEL cmd, SEL aSelector);
+static id               RWJSONAidForwardingTargetForSelector(id self, SEL cmd, SEL aSelector);
 
-static RWJSONRescueHandler rwHandler;
+static RWJSONAidHandler rwHandler;
 
 
 #define RWJSONRECUEMACRO \
@@ -25,7 +25,7 @@ static RWJSONRescueHandler rwHandler;
     if ([self respondsToSelector:aSelector]) {\
         return [super forwardingTargetForSelector:aSelector];\
     }else{\
-        id object = RWJSONRescueForwardingTargetForSelector(self, _cmd, aSelector);\
+        id object = RWJSONAidForwardingTargetForSelector(self, _cmd, aSelector);\
         if (object) {\
             if (rwHandler) rwHandler(self,aSelector);\
             return object;\
